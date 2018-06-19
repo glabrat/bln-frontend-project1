@@ -1,7 +1,5 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OfflinePlugin = require('offline-plugin')
-
 const { author, config , version } = require('./package.json');
 const { address } = require('./btc-config.json');
 
@@ -49,11 +47,6 @@ module.exports = {
             title: config.title,
             version: `v${version}`,
             inject: false
-        }),
-        new OfflinePlugin({
-            version: '[hash]',
-            responseStrategy: 'network-first',
-            safeToUseOptionalCaches: true
         })
     ],
     devtool: 'eval-source-map',

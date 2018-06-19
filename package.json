@@ -2,8 +2,8 @@
   "name": "frontend-project-1",
   "version": "0.8.4",
   "author": {
-    "name": "Gonzalo Pincheira",
-    "email": "g.pincheira.a@gmail.com"
+    "name": "German Labra",
+    "email": "germanalbertolabra@gmail.com"
   },
   "scripts": {
     "start": "webpack-dev-server --hot --mode development",
