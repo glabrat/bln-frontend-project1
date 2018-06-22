@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
 function createTable() {
     let table;
     let element;
