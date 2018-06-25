@@ -2,32 +2,20 @@ import 'whatwg-fetch';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
 function createTable() {
-    let table;
     let element;
 
-    table = `
-    <table class="home__table">
-    <thead>
-        <tr>
+    const tableHeader = `
         <th>Currency</th>
         <th>15m</th>
         <th>Last</th>
         <th>Buy</th>
         <th>Sell</th>
-        <th>Symbol</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td></td>
-        </tr>
-    </tbody>
-    </table> 
+        <th>Symbol</th> 
     `;
 
-    element = document.querySelector(".content");
+    element = document.querySelector(".home__table thead tr");
 
-    element.innerHTML = table;
+    element.innerHTML = tableHeader;
 }
 
 createTable();
