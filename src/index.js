@@ -6,6 +6,9 @@ function initializeBalance(balanceData) {
     balanceSpan.textContent = balanceData.confirmed_balance;
 }
 
-function createTable() {
-
+function createTable(CurrenciesData) {
+    
 }
+
+getBalance.then(initializeBalance);
+getCurrenciesValues.then(createTable);
