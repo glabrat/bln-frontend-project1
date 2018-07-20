@@ -34,6 +34,5 @@ jobs:
         app: $HEROKU_APP_NAME_STAGING
         on:
           all_branches: true
-          condition: $TRAVIS_BRANCH =~ (master|^\d*\.\d*\.\d*$|^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$)
     - stage: smoke-test
       script: bash ./ci/smoke-test
