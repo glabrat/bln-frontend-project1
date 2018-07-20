@@ -9,7 +9,7 @@ cache:
 stages:
   - name: functional-test
   - name: deploy
-    if: branch =~ /(master|(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)|^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$)/
+    if: branch =~ /(master|^\d*\.\d*\.\d*$|^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$)/
   - name: smoke-test
     if: branch = master
 jobs:
@@ -27,6 +27,6 @@ jobs:
         app: $HEROKU_APP_NAME
         on:
           all_branches: true
-          condition: $TRAVIS_BRANCH =~ (^master|^release-v\d.\d.\d|^\d.\d.\d)
+          condition: $TRAVIS_BRANCH =~ (master|^\d*\.\d*\.\d*$|^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$)
     - stage: smoke-test
       script: bash ./ci/smoke-test
