@@ -22,11 +22,8 @@ jobs:
       deploy:
         provider: heroku
         skip_cleanup: true
+        app: $HEROKU_APP_NAME
         api_key:
           secure: "$HEROKU_KEY"
-        on:
-          all_branches: true
-          condition: "branch =~ /(^master|^release-v\d.\d.\d|^\d.\d.\d)/"
-        app: $HEROKU_APP_NAME
     - stage: smoke-test
       script: bash ./ci/smoke-test
