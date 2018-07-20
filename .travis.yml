@@ -27,7 +27,6 @@ jobs:
         on:
           all_branches: true
           condition: "branch =~ /(^master|^release-v\d.\d.\d|^\d.\d.\d)/"
-        app: 
-          master: $HEROKU_APP_NAME
+        app: $HEROKU_APP_NAME
     - stage: smoke-test
       script: bash ./ci/smoke-test
