@@ -9,7 +9,7 @@ cache:
 stages:
   - name: functional-test
   - name: deploy
-    if: branch =~ /(^master|^release-v\d.\d.\d|^\d.\d.\d)/
+    if: branch =~ /(master|(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)|^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$)/
   - name: smoke-test
     if: branch = master
 jobs:
