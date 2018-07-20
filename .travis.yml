@@ -20,14 +20,14 @@ jobs:
       script: bash ./ci/deploy
       before_deploy: bash ./scripts/removeDevDep
       deploy:
-        provider: heroku
+      - provider: heroku
         skip_cleanup: true
         api_key:
           secure: "$HEROKU_KEY"
         app: $HEROKU_APP_NAME
         on:
           branch: master
-        provider: heroku
+      - provider: heroku
         skip_cleanup: true
         api_key:
           secure: "$HEROKU_KEY"
