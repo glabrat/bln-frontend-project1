@@ -9,7 +9,7 @@ cache:
 stages:
   - name: functional-test
   - name: deploy
-    if: branch =~ (^master|^release-v\d.\d.\d|^\d.\d.\d)
+    if: $TRAVIS_BRANCH =~ (^master|^release-v\d.\d.\d|^\d.\d.\d)
   - name: smoke-test
     if: branch = master
 jobs:
