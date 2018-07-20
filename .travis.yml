@@ -24,10 +24,9 @@ jobs:
         skip_cleanup: true
         api_key:
           secure: "$HEROKU_KEY"
+        app: $HEROKU_APP_NAME
         on:
           all_branches: true
-          condition: "branch =~ /(^master|^release-v\d.\d.\d|^\d.\d.\d)/"
-        app: 
-          master: $HEROKU_APP_NAME
+          condition: $TRAVIS_BRANCH =~ (^master|^release-v\d.\d.\d|^\d.\d.\d)
     - stage: smoke-test
       script: bash ./ci/smoke-test
