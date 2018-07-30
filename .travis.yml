@@ -31,7 +31,7 @@ jobs:
         on:
           all_branches: true
     - stage: smoke-test staging
-      script: bash ./ci/smoke-test 
+      script: bash ./ci/smoke-test "staging"
     - stage: deploy to production
       script: bash ./ci/deploy
       before_deploy: bash ./scripts/removeDevDep
@@ -39,4 +39,4 @@ jobs:
         <<: *heroku
         app: $HEROKU_APP_NAME
     - stage: smoke-test production
-      script: bash ./ci/smoke-test
+      script: bash ./ci/smoke-test "production"
