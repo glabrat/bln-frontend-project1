@@ -20,18 +20,13 @@ jobs:
       script: bash ./ci/deploy
       before_deploy: bash ./scripts/removeDevDep
       deploy:
-      - provider: heroku
+        provider: heroku
         skip_cleanup: true
         api_key:
           secure: "$HEROKU_KEY"
-        app: $HEROKU_APP_NAME
-        on:
-          branch: master
-      - provider: heroku
-        skip_cleanup: true
-        api_key:
-          secure: "$HEROKU_KEY"
-        app: $HEROKU_APP_NAME_STAGING
+        app: 
+          master: $HEROKU_APP_NAME
+          /^\d*\.\d*\.\d*$/: $HEROKU_APP_NAME_STAGING
         on:
           all_branches: true
     - stage: smoke-test
